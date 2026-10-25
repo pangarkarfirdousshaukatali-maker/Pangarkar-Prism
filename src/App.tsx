@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
@@ -7,6 +9,7 @@ import { BrandStory } from './components/BrandStory';
 import { ProductCatalog } from './components/ProductCatalog';
 import { CustomizationStudio } from './components/CustomizationStudio';
 import { ContactSection } from './components/ContactSection';
+import { CollaborationSection } from './components/CollaborationSection';
 import { Footer } from './components/Footer';
 import { ProductDetailModal } from './components/ProductDetailModal';
 import { CartDrawer } from './components/CartDrawer';
@@ -28,14 +31,18 @@ import {
 } from './types';
 import { Edit3 } from 'lucide-react';
 
-export const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<ActiveTab>('home');
+interface AppProps {
+  initialTab?: ActiveTab;
+}
+
+export const App: React.FC<AppProps> = ({ initialTab = 'home' }) => {
+  const [activeTab, setActiveTab] = useState<ActiveTab>(initialTab);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   // Live editable Site Config with LocalStorage persistence
   const [siteData, setSiteData] = useState(() => {
     try {
-      const saved = localStorage.getItem('ppb_custom_site_config');
+      const saved = typeof window !== 'undefined' ? localStorage.getItem('ppb_custom_site_config') : null;
       return saved ? JSON.parse(saved) : defaultSiteConfig;
     } catch {
       return defaultSiteConfig;
@@ -45,7 +52,7 @@ export const App: React.FC = () => {
   // Live editable Products with LocalStorage persistence
   const [productList, setProductList] = useState<Product[]>(() => {
     try {
-      const saved = localStorage.getItem('ppb_custom_products');
+      const saved = typeof window !== 'undefined' ? localStorage.getItem('ppb_custom_products') : null;
       return saved ? JSON.parse(saved) : defaultProducts;
     } catch {
       return defaultProducts;
@@ -84,7 +91,7 @@ export const App: React.FC = () => {
   // Cart State with LocalStorage persistence
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
-      const saved = localStorage.getItem('ppb_boutique_cart');
+      const saved = typeof window !== 'undefined' ? localStorage.getItem('ppb_boutique_cart') : null;
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -282,11 +289,7 @@ export const App: React.FC = () => {
               }}
             />
 
-            {/* 4. Brand Story Section */}
-            <BrandStory />
-
-            {/* 5. Contact Section */}
-            <ContactSection />
+            <CollaborationSection />
           </>
         )}
 

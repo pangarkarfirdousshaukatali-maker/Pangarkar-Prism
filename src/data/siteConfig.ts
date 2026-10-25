@@ -7,12 +7,11 @@ export const siteConfig = {
     logoUrl: '/assets/logo.png',
   },
   contact: {
-    phone: '+91 (0) 98230 45678',
-    whatsapp: '+91 98230 45678',
+    phone: '9892924721',
+    whatsapp: '9892924721',
     whatsappMessage: 'Hello Pangarkar Prism Boutique, I am interested in inquiring about your boutique collections and bespoke services.',
-    email: 'concierge@pangarkarprism.com',
-    studioAddress: 'Prism Atelier, 14 Heritage Boulevard, High Street Galleria, Pune 411001, India',
-    hours: 'Monday – Saturday: 10:30 AM – 7:30 PM IST (Sunday by private appointment)',
+    email: '',
+    hours: 'Monday – Saturday: 10:30 AM – 7:30 PM IST (by appointment)',
   },
   social: {
     instagram: 'https://instagram.com/pangarkarprism',

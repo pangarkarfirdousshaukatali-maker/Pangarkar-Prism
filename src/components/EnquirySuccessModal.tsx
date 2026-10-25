@@ -22,7 +22,7 @@ export const EnquirySuccessModal: React.FC<EnquirySuccessModalProps> = ({
     const text = encodeURIComponent(
       `Hello Pangarkar Prism Boutique,\n\nI have submitted a bespoke customization enquiry.\n*Reference ID:* ${orderReference}\n*Client:* ${enquiryData.customerName}\n*Category:* ${enquiryData.category}\n*Silhouette:* ${enquiryData.silhouette}\n*Fabric:* ${enquiryData.fabric}\n*Color:* ${enquiryData.color}\n${enquiryData.monogramText ? `*Monogram:* ${enquiryData.monogramText}\n` : ''}\nLooking forward to hearing from your concierge team!`
     );
-    window.open(`https://wa.me/919823045678?text=${text}`, '_blank');
+    window.open(`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=${text}`, '_blank');
   };
 
   return (

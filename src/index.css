@@ -75,3 +75,33 @@
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(176, 138, 69, 0.3), transparent);
 }
+
+.customization-shell {
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(216, 190, 125, 0.14), transparent 28rem),
+    radial-gradient(circle at 88% 22%, rgba(36, 51, 35, 0.06), transparent 25rem);
+}
+
+.customization-form > div {
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 32px -18px rgba(36, 51, 35, 0.28);
+  transition: box-shadow 240ms ease, transform 240ms ease, border-color 240ms ease;
+}
+
+.customization-form > div:hover {
+  border-color: rgba(176, 138, 69, 0.42);
+  box-shadow: 0 18px 38px -20px rgba(36, 51, 35, 0.32);
+}
+
+.customization-form input,
+.customization-form select,
+.customization-form textarea {
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.customization-form input:focus,
+.customization-form select:focus,
+.customization-form textarea:focus {
+  box-shadow: 0 0 0 3px rgba(176, 138, 69, 0.12);
+  background-color: #fffdfa;
+}

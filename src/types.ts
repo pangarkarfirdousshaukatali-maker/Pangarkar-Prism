@@ -69,6 +69,7 @@ export interface CustomEnquiryForm {
   monogramText?: string;
   monogramPlacement?: string;
   specialRequests?: string;
+  budget?: string;
   referenceImageName?: string;
   referenceImageData?: string;
   customerName: string;

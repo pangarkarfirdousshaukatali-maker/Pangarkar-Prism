@@ -105,6 +105,7 @@ export const CustomizationStudio: React.FC<CustomizationStudioProps> = ({
   const [monogramText, setMonogramText] = useState('');
   const [monogramPlacement, setMonogramPlacement] = useState('Pallu / Main Border Edge');
   const [specialRequests, setSpecialRequests] = useState('');
+  const [budget, setBudget] = useState('');
 
   // Image Upload state
   const [referenceImage, setReferenceImage] = useState<{
@@ -190,6 +191,7 @@ export const CustomizationStudio: React.FC<CustomizationStudioProps> = ({
       monogramText: monogramText.trim() ? monogramText.trim() : undefined,
       monogramPlacement: monogramText.trim() ? monogramPlacement : undefined,
       specialRequests: specialRequests.trim() || undefined,
+      budget: budget || undefined,
       referenceImageName: referenceImage?.name,
       referenceImageData: referenceImage?.preview,
       customerName: customerName.trim(),
@@ -202,7 +204,7 @@ export const CustomizationStudio: React.FC<CustomizationStudioProps> = ({
   };
 
   return (
-    <div className="py-12 sm:py-20 bg-ivory-200">
+    <div className="customization-shell py-12 sm:py-20 bg-ivory-200">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Atelier Header */}
@@ -234,7 +236,7 @@ export const CustomizationStudio: React.FC<CustomizationStudioProps> = ({
         </div>
 
         {/* Main Customization Form */}
-        <form onSubmit={handleSubmit} className="space-y-10">
+        <form onSubmit={handleSubmit} className="customization-form space-y-10">
           
           {/* STEP 1: Choose Product Category */}
           <div className="bg-white rounded-xl border border-sand p-6 sm:p-8 shadow-sm">
@@ -444,6 +446,23 @@ export const CustomizationStudio: React.FC<CustomizationStudioProps> = ({
                       onChange={(e) => setMeasurements({ ...measurements, bustChest: e.target.value })}
                       className="w-full px-3 py-2 bg-ivory-100 border border-sand rounded text-xs text-forest-900 focus:outline-none focus:border-gold-500"
                     />
+                  </div>
+                  <div className="mt-6 max-w-sm">
+                    <label className="block text-xs uppercase tracking-wider font-semibold text-forest-800 mb-1">
+                      Preferred Budget
+                    </label>
+                    <select
+                      value={budget}
+                      onChange={(e) => setBudget(e.target.value)}
+                      className="w-full px-4 py-2.5 bg-ivory-100 border border-sand rounded-lg text-sm text-forest-900 focus:outline-none focus:border-gold-500"
+                    >
+                      <option value="">Select an approximate range</option>
+                      <option value="Under ₹25,000">Under ₹25,000</option>
+                      <option value="₹25,000 – ₹50,000">₹25,000 – ₹50,000</option>
+                      <option value="₹50,000 – ₹1,00,000">₹50,000 – ₹1,00,000</option>
+                      <option value="Above ₹1,00,000">Above ₹1,00,000</option>
+                      <option value="To be discussed">To be discussed</option>
+                    </select>
                   </div>
                   <div>
                     <label className="block text-[11px] uppercase tracking-wider text-forest-600 mb-1">
@@ -675,7 +694,7 @@ export const CustomizationStudio: React.FC<CustomizationStudioProps> = ({
                 </label>
                 <input
                   type="tel"
-                  placeholder="+91 98230 00000"
+                  placeholder="9892924721"
                   value={customerPhone}
                   onChange={(e) => setCustomerPhone(e.target.value)}
                   className={`w-full px-4 py-2.5 bg-ivory-100 border rounded-lg text-sm text-forest-900 focus:outline-none ${
@@ -741,7 +760,7 @@ export const CustomizationStudio: React.FC<CustomizationStudioProps> = ({
                 className="w-full sm:w-auto px-8 py-4 bg-forest-900 text-ivory-100 text-xs uppercase tracking-[0.2em] font-semibold rounded hover:bg-forest-800 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-3 border border-gold-500/50"
               >
                 <Sparkles className="w-4 h-4 text-gold-400" />
-                <span>Submit Customization Enquiry</span>
+                <span>Submit Customization Request</span>
               </button>
             </div>
 

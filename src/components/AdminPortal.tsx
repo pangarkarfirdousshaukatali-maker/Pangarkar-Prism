@@ -306,7 +306,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider font-semibold text-forest-800 mb-1">
-                      Atelier Visiting Hours:
+                      Appointment Timings:
                     </label>
                     <input
                       type="text"
@@ -317,17 +317,6 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-forest-800 mb-1">
-                    Atelier / Studio Physical Address:
-                  </label>
-                  <textarea
-                    rows={2}
-                    value={formData.contact.studioAddress}
-                    onChange={(e) => handleInfoChange('contact', 'studioAddress', e.target.value)}
-                    className="w-full px-3 py-2 bg-ivory-100 border border-sand rounded text-xs text-forest-900 focus:outline-none focus:border-gold-500"
-                  />
-                </div>
               </div>
 
               {/* Social Media Links */}

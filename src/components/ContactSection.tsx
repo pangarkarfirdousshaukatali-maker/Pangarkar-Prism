@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, Clock, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 
 export const ContactSection: React.FC = () => {
@@ -22,7 +22,7 @@ export const ContactSection: React.FC = () => {
     const encoded = encodeURIComponent(
       `Hello Pangarkar Prism Boutique, I would like to inquire about your handcrafted collections and appointment booking.`
     );
-    window.open(`https://wa.me/919823045678?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=${encoded}`, '_blank');
   };
 
   return (
@@ -32,7 +32,7 @@ export const ContactSection: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold mb-2">
-            Visit & Connect
+            Connect & Create
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-forest-900 tracking-tight">
             The Pangarkar Prism Atelier
@@ -41,7 +41,7 @@ export const ContactSection: React.FC = () => {
             <span className="text-gold-500 text-xs">▲</span>
           </div>
           <p className="text-sm sm:text-base text-forest-600 font-light">
-            We welcome you to schedule a private studio visit, virtual consultation, or discuss your bespoke design requirements.
+            Schedule an appointment, start a virtual consultation, or discuss your bespoke design requirements.
           </p>
         </div>
 
@@ -57,25 +57,11 @@ export const ContactSection: React.FC = () => {
 
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-ivory-200 border border-gold-300 flex items-center justify-center text-gold-600 flex-shrink-0">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-xs uppercase tracking-wider font-semibold text-forest-900 mb-1">
-                    Atelier Location
-                  </h4>
-                  <p className="text-xs sm:text-sm text-forest-600 leading-relaxed font-light">
-                    {siteConfig.contact.studioAddress}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-ivory-200 border border-gold-300 flex items-center justify-center text-gold-600 flex-shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs uppercase tracking-wider font-semibold text-forest-900 mb-1">
-                    Visiting Hours
+                    Appointment Timings
                   </h4>
                   <p className="text-xs sm:text-sm text-forest-600 leading-relaxed font-light">
                     {siteConfig.contact.hours}
@@ -106,7 +92,7 @@ export const ContactSection: React.FC = () => {
                     Direct Email
                   </h4>
                   <p className="text-xs sm:text-sm text-forest-600 font-light">
-                    {siteConfig.contact.email}
+                    {siteConfig.contact.email || 'Official email coming soon'}
                   </p>
                 </div>
               </div>
@@ -202,7 +188,7 @@ export const ContactSection: React.FC = () => {
                       </label>
                       <input
                         type="tel"
-                        placeholder="+91 98230 00000"
+                        placeholder="9892924721"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-2.5 bg-ivory-100 border border-sand rounded-lg text-sm text-forest-900 focus:outline-none focus:border-gold-500"

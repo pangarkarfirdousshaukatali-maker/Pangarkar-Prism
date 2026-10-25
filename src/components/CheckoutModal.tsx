@@ -65,7 +65,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
       `Hello Pangarkar Prism Boutique,\n\nI would like to place an order:\n*Order Ref:* ${orderRef}\n*Client:* ${customer.name}\n*Phone:* ${customer.phone}\n*Address:* ${customer.shippingAddress || 'Not provided'}\n\n*Items:*\n${itemsList}\n\n*Total:* ${formatPrice(subtotal)}\n\nPlease confirm availability and payment details.`
     );
 
-    window.open(`https://wa.me/919823045678?text=${msg}`, '_blank');
+    window.open(`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=${msg}`, '_blank');
     onOrderCompleted();
   };
 
@@ -143,7 +143,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   <input
                     type="tel"
                     required
-                    placeholder="+91 98230 00000"
+                    placeholder="9892924721"
                     value={customer.phone}
                     onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
                     className="w-full px-4 py-2.5 bg-ivory-100 border border-sand rounded-lg text-sm text-forest-900 focus:outline-none focus:border-gold-500"

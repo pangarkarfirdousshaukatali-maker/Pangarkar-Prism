@@ -31,8 +31,19 @@ export const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const handleNav = (tab: ActiveTab) => {
-    setActiveTab(tab);
     setMobileMenuOpen(false);
+    const paths: Record<ActiveTab, string> = {
+      home: '/',
+      catalogue: '/catalogue',
+      'custom-studio': '/customization',
+      about: '/about',
+      contact: '/contact',
+    };
+    if (window.location.pathname !== paths[tab]) {
+      window.location.href = paths[tab];
+      return;
+    }
+    setActiveTab(tab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

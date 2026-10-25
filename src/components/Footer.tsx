@@ -21,6 +21,17 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   const handleNav = (tab: ActiveTab) => {
+    const paths: Record<ActiveTab, string> = {
+      home: '/',
+      catalogue: '/catalogue',
+      'custom-studio': '/customization',
+      about: '/about',
+      contact: '/contact',
+    };
+    if (window.location.pathname !== paths[tab]) {
+      window.location.href = paths[tab];
+      return;
+    }
     setActiveTab(tab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -141,11 +152,7 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <div className="text-xs text-ivory-300 space-y-2 leading-relaxed font-light">
               <p>
-                <strong className="text-ivory-100 font-medium block">Studio Address:</strong>
-                {siteConfig.contact.studioAddress}
-              </p>
-              <p>
-                <strong className="text-ivory-100 font-medium block">Hours:</strong>
+                <strong className="text-ivory-100 font-medium block">Appointment Timings:</strong>
                 {siteConfig.contact.hours}
               </p>
               <p>
@@ -154,12 +161,12 @@ export const Footer: React.FC<FooterProps> = ({
                   {siteConfig.contact.phone}
                 </a>
               </p>
-              <p>
+              {siteConfig.contact.email && <p>
                 <strong className="text-ivory-100 font-medium block">Email:</strong>
                 <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-gold-300">
                   {siteConfig.contact.email}
                 </a>
-              </p>
+              </p>}
             </div>
           </div>
 
