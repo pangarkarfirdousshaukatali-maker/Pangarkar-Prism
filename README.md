@@ -1,61 +1,108 @@
-# Pangarkar Prism Boutique ✨
+# Pangarkar Prism Boutique
 
-> **Tradition • Craft • Contemporary**  
-> An elegant boutique web application bringing together artisanal craftsmanship, personalized products, and contemporary style.
+> **Tradition • Craft • Contemporary**
 
----
+Pangarkar Prism Boutique is a responsive luxury fashion storefront for handcrafted collections, bespoke customization, appointment enquiries, and creative collaboration.
 
-## 🌟 Highlights & Features
+## Features
 
-- **Artisanal Showcase**: Curated collections of handcrafted and bespoke boutique offerings.
-- **Interactive Product Catalog**: Rich details, category filters, and seamless navigation.
-- **Bespoke Inquiries & Orders**: Easy WhatsApp and custom order flow for personalized tailoring and products.
-- **Luxury Aesthetic**: Harmonious ivory, royal gold, and deep forest green color palette, elegant typography (Cinzel & Cormorant Garamond), and smooth animations.
-- **Fully Responsive**: Optimized for seamless experiences across desktop, tablet, and mobile devices.
+- Ready-made product catalogue with category filtering and product details.
+- Bespoke customization studio with product type, silhouette, fabric, colour, sizing, budget, requirements, reference image upload, and contact validation.
+- WhatsApp-first concierge flows for enquiries, appointments, customization requests, and checkout.
+- Dedicated pages for the home experience, catalogue, customization studio, About Us, and contact appointments.
+- Fashion design collaboration call-to-action for designers, stylists, textile artists, and other creative professionals.
+- Local browser persistence for cart contents and owner-managed catalogue/site content.
+- Responsive deep-green, ivory, and gold luxury visual system.
+- SEO/AEO foundations including page metadata, Open Graph/Twitter cards, Organization and WebSite JSON-LD, robots.txt, and sitemap.xml.
 
----
+## Routes
 
-## 🛠️ Tech Stack
+| Route | Purpose |
+| --- | --- |
+| `/` | Boutique home page and featured collections |
+| `/catalogue` | Ready-made collection |
+| `/customization` | Bespoke customization studio |
+| `/about` | Brand story and heritage |
+| `/contact` | Appointment and concierge enquiries |
+| `/robots.txt` | Crawler rules |
+| `/sitemap.xml` | Search engine sitemap |
 
-- **Frontend**: [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- **Bundler & Tooling**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) with custom design tokens
-- **Icons**: [Lucide React](https://lucide.dev/)
+## Tech stack
 
----
+- [Next.js](https://nextjs.org/) 15 with the App Router
+- [React](https://react.dev/) 18
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide React](https://lucide.dev/) icons
+- CSS custom properties and utility classes for the boutique design system
 
-## 🚀 Getting Started
+## Requirements
 
-### Prerequisites
+- Node.js 18 or newer
+- npm
 
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- `npm` or `yarn`
+## Local development
 
-### Installation
+Install dependencies:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/pangarkarfirdousshaukatali-maker/Pangarkar-Prism.git
-   cd Pangarkar-Prism
-   ```
+```bash
+npm install
+```
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+Start the Next.js development server:
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
+Open [http://localhost:3000](http://localhost:3000).
 
----
+Create a production build:
 
-## 📄 License
+```bash
+npm run build
+```
+
+Run the production build locally:
+
+```bash
+npm start
+```
+
+`npm run preview` is retained as an alias for `npm start`.
+
+## Configuration
+
+Public site content and contact settings are defined in [`src/data/siteConfig.ts`](./src/data/siteConfig.ts). The WhatsApp and phone number are currently configured as `9892924721`. The official email is intentionally left blank until it is supplied.
+
+For production metadata, set the canonical site URL:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-domain.example
+```
+
+This value is used for `metadataBase`, canonical asset URLs, and social metadata. Do not commit credentials or private customer data.
+
+## Content and data
+
+- Product catalogue data: [`src/data/products.ts`](./src/data/products.ts)
+- Site and contact configuration: [`src/data/siteConfig.ts`](./src/data/siteConfig.ts)
+- Shared types: [`src/types.ts`](./src/types.ts)
+- App shell and commerce state: [`src/App.tsx`](./src/App.tsx)
+- Next.js route entry points: [`app/`](./app/)
+
+The owner mode editor is available through the existing admin query/hash flow and stores edits in browser `localStorage`; it is not a server-backed CMS.
+
+## Validation
+
+Run the production build before deployment:
+
+```bash
+npm run build
+```
+
+The build statically validates the application routes, metadata routes, and TypeScript types.
+
+## License
 
 This project is proprietary and crafted for Pangarkar Prism Boutique. All rights reserved.

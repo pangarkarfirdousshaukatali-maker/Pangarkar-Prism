@@ -11,7 +11,7 @@ export const siteConfig = {
     whatsapp: '9892924721',
     whatsappMessage: 'Hello Pangarkar Prism Boutique, I am interested in inquiring about your boutique collections and bespoke services.',
     email: '',
-    hours: 'Monday – Saturday: 10:30 AM – 7:30 PM IST (by appointment)',
+    hours: 'Monday – Saturday: 10:30 AM – 8:30 PM IST (by appointment)',
   },
   social: {
     instagram: 'https://instagram.com/pangarkarprism',
